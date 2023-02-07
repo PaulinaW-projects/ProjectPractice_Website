@@ -50,9 +50,9 @@ items.forEach(function (item) {
     icon.className.add('icon')
     iconSvg.className.add()
     title.className.add('titleCard')
-    title.textContent = 'CREATIVE IDEAS'
+    title.textContent = item.name //NOT 'CREATIVE IDEAS'
     note.className.add('noteCard')
-    note.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor';
+    note.textContent = item.value //NOT 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor'; 
     
     card.appendChild(circle)
     circle.appendChild(icon)
@@ -60,13 +60,17 @@ items.forEach(function (item) {
     card.appendChild(title)
     card.appendChild(note)
     
-    return card;
-
+    //remember, do not use innerHTML 
+    const myCards = document.getElementById('cards')
+    myCards.appendChild(card)
     
     
 })
  }
-    getCharacteristics().then((items) => {setupCards(items)}).catch((error) => [])
+    document.addEventListener("DOMContentLoaded", function(){
+        getCharacteristics().then((items) => {setupCards(items)}).catch((error) => [])
+    })
+ 
 
     /*operacje na tablicach, promise (praca z kodem asynchronicznym), operacje na drzewie DOM, uruchomienie kodu JS po załadowaniu drzewa DOM
 /*
@@ -89,6 +93,15 @@ const servicesContent = [{
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
 }]
 
+// const servicesValues = []
+
+// servicesTypes.map(a => {
+//     let matched = servicesContent.filter(b => a === b.type);
+//     if (matched.length) {
+//         servicesValues.push({type:a, title: b.title, content: b.content});
+//     }
+// })
+
 const getServicesTypes = () =>
     new Promise((resolve, reject) => {
         if (!servicesTypes) {
@@ -98,10 +111,61 @@ const getServicesTypes = () =>
         resolve(servicesTypes);
     });
 
-const getServices = (servicesTypes) => {
-    // for each services types should return services content
-    return []
+const getServicesContent = (servicesTypes) => {
+        return new Promise((resolve, reject) => {
+            if (!servicesTypes) {
+                reject([])
+            }
+            const response = servicesContent.map(item => {
+                if (servicesTypes.includes(item.type)) {
+                    return item
+                }
+            })
+            resolve(response)
+        })
 }
+
+
+//funkcja, która najpierw pobiera servicesTypes, później przekazuje je jako parametr do getServicesContent, odpowiedź getServicesContent jest generowana jako HTML w drzewie DOM
+    
+    // const getServicesTypes = () =>
+    // new Promise((resolve, reject) => {
+    //     if (!servicesValues) {
+    //         reject(new Error('Services not found'));
+    //     }
+
+    //     resolve(servicesValues);
+    // });
+
+    function setupServices(response) {
+        response.forEach(function (item) {
+
+            const service = document.createElement('div');
+            const title = document.createElement('p') 
+            const note = document.createElement('p')
+
+            service.setAttribute('id','type')
+            service.className = add('type')
+            title.textContent = item.title
+            note.textContent = item.content
+
+            service.appendChild(title)
+            service.appendChild(note)
+            
+            const myServices = document.getElementById('type')
+            myServices.appendChild(service)
+        })
+    }
+    document.addEventListener("DOMContentLoaded", function(){
+        getServicesContent().then((response) => {setupServices(response)}).catch((error) => [])
+    })
+
+
+// const getServices = (servicesTypes) => {
+//     // for each services types should return services content
+//     return []
+// }
+
 
 /*
 * 1.Add media queries to your template to be able to properly display your page on mobile devices
