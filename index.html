@@ -17,7 +17,92 @@
       <!-- mail and contact on the top of the site -->
       <section class="navTop">
         <div class="containerTop">
-          <a href="mailto:example@company.com">
+          <div class="displayMobile">
+            <button id="hamburgerBtn" class="hamburgerMenu">
+              <svg
+                class="hamburgerIcon"
+                width="120px"
+                height="120px"
+                viewBox="0 0 24 24"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                fill="#000000"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <title>Menu</title>
+                  <g
+                    id="Page-1"
+                    stroke="none"
+                    stroke-width="1"
+                    fill="none"
+                    fill-rule="evenodd"
+                  >
+                    <g id="Menu">
+                      <rect
+                        id="Rectangle"
+                        fill-rule="nonzero"
+                        x="0"
+                        y="0"
+                        width="24"
+                        height="24"
+                      ></rect>
+                      <line
+                        x1="5"
+                        y1="7"
+                        x2="19"
+                        y2="7"
+                        id="Path"
+                        stroke="#FFC000"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                      ></line>
+                      <line
+                        x1="5"
+                        y1="17"
+                        x2="19"
+                        y2="17"
+                        id="Path"
+                        stroke="#FFC000"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                      ></line>
+                      <line
+                        x1="5"
+                        y1="12"
+                        x2="19"
+                        y2="12"
+                        id="Path"
+                        stroke="#FFC000"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                      ></line>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </button>
+            <div id="myNav" class="navLinksMobile">
+              <a href="javascript:void(0)" class="closeBtn">&times;</a>
+
+              <nav class="navLinksMobileContent">
+                <p class="logo"><span class="logoColor">CONS</span>TRUCT</p>
+                <a class="mainLink" href="#home">HOME</a>
+                <a class="mainLink" href="#features">FEATURES</a>
+                <a class="mainLink" href="#projects">PROJECTS</a>
+                <a class="mainLink" href="#service">SERVICE</a>
+                <a class="mainLink" href="#contact">CONTACT US</a>
+              </nav>
+            </div>
+          </div>
+
+          <a class="contactLink" href="mailto:example@company.com">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -32,12 +117,14 @@
             example@company.com</a
           >
 
-          <a href="tel:+9888 5554 5445 3334"
+          <a class="contactLink" href="tel:+9888 5554 5445 3334"
             ><span class="contact">Call:</span> +9888 5554 5445 3334</a
           >
         </div>
       </section>
+
       <!-- main navigation bar -->
+
       <section class="navMain">
         <div class="containerMain">
           <p class="logo"><span class="logoColor">CONS</span>TRUCT</p>
@@ -70,6 +157,7 @@
         <div class="carouselContent">
           <div class="arrow">
             <svg
+              class="leftArrow"
               xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink"
               width="15px"
@@ -93,6 +181,7 @@
           </div>
           <div class="arrow">
             <svg
+              class="rightArrow"
               xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink"
               width="15px"
@@ -733,5 +822,6 @@
         </p>
       </footer>
     </section>
+    <script src="index.js"></script>
   </body>
 </html>
