@@ -59,6 +59,10 @@ const only31And42 = Object.keys(person).reduce((final, curr) => {
   return final;
 }, {});
 console.log(only31And42);
+// to samo, tylko prościej ( i lepiej, wyświetla tylko wartości)
+
+const onlyNumbers = Object.values(person).filter(element => typeof element === 'number')
+console.log(onlyNumbers)
 
 // na podstawie obiektu extendedPerson zwroc nowy obiekt w ktorym nie bedzie pola age, a lista zwierzat bedzie odwrócona, a nazwy zwierzat napisane wielką literą
 
@@ -80,11 +84,9 @@ console.log(personKeys);
 
 // do zmiennej ponizej zwroc tablice zawierajaca klucz i wartosc, ale tylko dla tych elementow dla
 // ktorych wartosc jest typu array
-const arraysKV = Object.values(person);
-console.log(arraysKV);
-if ((value) => Array.isArray(value)) {
-  return;
-}
+
+
+const arraysKV = Object.entries(extendedPerson).filter(([_, value]) => Array.isArray(value))
 console.log(arraysKV);
 
 // ------------------------------------------------
@@ -130,7 +132,7 @@ const number = 4.121231231
 const numberUp = number.toFixed(2)
 console.log(numberUp)
 // b) w dół
-
+*/
 //
 const stringifiedNumber = '3,13141241234'
 // a) zamien na liczbę całkowitą
@@ -145,5 +147,8 @@ const val1 = 10, val2 = 2;
 // rezultat: 'Gdy do 10 dodamy 2, wynik wyniesie 12'
 const concatenatedString = 'Gdy do ' + val1 + ' dodamy ' + val2 + ', wynik wyniesie ' + (val1 + val2)
 console.log(concatenatedString);
+//lepiej
+const z = `Gdy do ${val1} dodamy ${val2}, wynik wyniesie ${val1 + val2}`
+console.log(z)
 
-*/
+
